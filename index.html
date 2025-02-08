@@ -12,6 +12,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js"></script>
@@ -30,12 +33,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <ul class="navbar_menu">
-        <li class="navbar_item">
-          <a href="#headerL" class="navbar_link">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            <span>About</span>
-          </a>
-        </li>
+        
         <li class="navbar_item">
           <a href="#events" class="navbar_link">
             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -51,11 +49,11 @@
         <li class="navbar_item">
           <a href="#history" class="navbar_link">
             <i class="fa fa-history" aria-hidden="true"></i>
-            <span>Theme</span>
+            <span>Computers</span>
           </a>
         </li>
         <li class="navbar_item">
-          <a href="#" class="navbar_link">
+          <a href="#sponsors" class="navbar_link">
             <i class="fa fa-usd" aria-hidden="true"></i>
             <span>Sponsor</span>
           </a>
@@ -64,6 +62,12 @@
           <a href="#" class="navbar_link" id="theme-toggle">
             <i class="fa fa-sun" aria-hidden="true"></i>
             <span>Theme</span>
+          </a>
+        </li>
+        <li class="navbar_item">
+          <a href="#footerL" class="navbar_link">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            <span>About</span>
           </a>
         </li>
       </ul>
@@ -190,7 +194,6 @@
             <tr>
               <td>AI Workshop</td>
               <td>March 10, 2025</td>
-              <td>2:00 PM</td>
             </tr>
             <tr>
               <td>Cybersecurity CTF</td>
@@ -356,65 +359,147 @@
       </section>
     </div>
 
+    <!-- Sponsor Section -->
+    <section class="sponsors" id="sponsors">
+      <h2>Our Sponsors</h2>
+      <div class="sponsors-grid">
+        <img src="CKPCEt.png" alt="Sponsor 1" />
+        <img src="CKPCEt.png" alt="Sponsor 2" />
+        <img src="CKPCEt.png" alt="Sponsor 3" />
+        <img src="CKPCEt.png" alt="Sponsor 4" />
+        <img src="CKPCEt.png" alt="Sponsor 5" />
+        <img src="CKPCEt.png" alt="Sponsor 6" />
+      </div>
+    </section>
+
+    <footer class="footer" id="footerL">
+      <div class="footer-container">
+        <div class="footer-left">
+          <img src="CKPCEt.png" alt="CKPCET Logo" style="height: 300px; margin-right: 85px;">
+          
+          <p>C. K. Pithawala College of Engineering and Technology</p>
+        </div>
+
+        <div class="footer-center">
+          <h3>Contact Us</h3>
+          <p>If you have any questions, feel free to reach out!</p>
+          <p>Sports Secretary:</p>
+          <p>Abhinav Singh (SS): +91 93139 56788</p>
+          <p>Maharshi Barot (SS): +91 84889 02003</p>
+          <p>Vinit Nishad (SS): +91 70410 18964</p>
+          <p>Harsh Dave (SS):</p>
+          <p>Calling Only: +91 81604 08834</p>
+          <p>Whatsapp Only: +91 98988 72588</p>
+        </div>
+
+        
+      </div>
+      <div class="footer-bottom">
+        <p>© CKPCET 2025 | All Rights Reserved</p>
+        <p>Website Crafted by <a href="#" style="color: #5c6bc0;">Kevin Patel</a> & <a href="#" style="color: #5c6bc0;">Tattvam Kajavadara</a>, <br/> Helped by <a href="#" style="color: #5c6bc0;">Pratham Tailor</a> & <a href="#" style="color: #5c6bc0;">Dhruv Variya</a></p>
+      </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        VANTA.NET({
-          el: "#headerL",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          backgroundColor: 0x0a0b1e,
-          color: 0x5c6bc0,
-          points: 10.00,
-          maxDistance: 18.00,
-          spacing: 15.00
+        let headerNet, eventsRings, scheduleBirds, historyBirds, sponsorsRings;
+
+        const initializeVanta = () => {
+          const vantaOptions = {
+            el: "#headerL",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+            color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+          };
+
+          if (headerNet) headerNet.destroy();
+          headerNet = VANTA.NET(vantaOptions);
+
+          const ringsOptions = {
+            el: "#events",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+            color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+            backgroundAlpha: 0.5,
+            ringSize: 1,
+            rotationMultiplier: 0.05
+          };
+
+          if (eventsRings) eventsRings.destroy();
+          eventsRings = VANTA.RINGS(ringsOptions);
+
+           const birdsOptionsSchedule = {
+            el: "#schedule",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+            color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+            quantity: 3
+          };
+
+          if (scheduleBirds) scheduleBirds.destroy();
+          scheduleBirds = VANTA.BIRDS(birdsOptionsSchedule);
+
+           const birdsOptionsHistory = {
+            el: "#history",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+             backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+            color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+            quantity: 3
+          };
+
+          if (historyBirds) historyBirds.destroy();
+          historyBirds = VANTA.BIRDS(birdsOptionsHistory);
+
+          const ringsOptionsSponsors = {
+            el: "#sponsors",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: document.body.classList.contains('light-theme') ? 0xf0f0f0 : 0x1e1e1e,
+            color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+            backgroundAlpha: 0.5,
+            ringSize: 1,
+            rotationMultiplier: 0.05
+          };
+
+          if (sponsorsRings) sponsorsRings.destroy();
+          sponsorsRings = VANTA.RINGS(ringsOptionsSponsors);
+        };
+
+        initializeVanta();
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+          setTimeout(initializeVanta, 100);
         });
-        VANTA.RINGS({
-          el: "#events",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          backgroundColor: 0x0a0b1e,
-          color: 0x5c6bc0,
-          backgroundAlpha:0.5,
-          ringSize:1,
-          rotationMultiplier:0.05
-        });
-         VANTA.BIRDS({
-          el: "#schedule",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-           backgroundColor: 0x0a0b1e,
-           color: 0x5c6bc0,
-           quantity: 3
-        });
-         VANTA.BIRDS({
-          el: "#history",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-           backgroundColor: 0x0a0b1e,
-           color: 0x5c6bc0,
-           quantity: 3
-        });
-      })
+      });
     </script>
     <script src="./script.js"></script>
   </body>
