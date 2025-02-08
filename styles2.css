@@ -1,0 +1,246 @@
+/* Root Variables for Neon Theme */
+:root {
+  --neon-blue: #00f7ff;
+  --neon-purple: #b700ff;
+  --dark-bg: #0a0a0a;
+  --darker-bg: #050505;
+  --accent: #00ff8c;
+  --text-glow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Mono', monospace;
+  background: var(--dark-bg);
+  color: #fff;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Section */
+.header {
+  width: calc(100% - 100px); /* Adjusted for navbar */
+  margin-left: 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+              url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.reg-h2 {
+  font-size: 50px;
+  margin: 0;
+  text-shadow: var(--text-glow);
+}
+
+/* Fixed Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.95);
+  border-right: 2px solid var(--neon-blue);
+  z-index: 1000;
+}
+
+.navbar_menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-top: 2rem;
+}
+
+.navbar_item {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.navbar_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar_link span {
+  display: none;
+  position: absolute;
+  left: 90px;
+  background: var(--darker-bg);
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.navbar_item:hover span {
+  display: block;
+  background-color: var(--neon-blue);
+  padding: 10px;
+}
+
+/* Fix Content Overlapping */
+.content {
+  width: calc(100% - 100px);
+  margin-left: 100px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header Adjustments */
+.header1 {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a2336;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-size: 37px;
+}
+
+/* Events Section */
+.events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  width: calc(100% - 100px);
+  margin-left: 100px;
+}
+
+/* Event Card */
+.event-card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--neon-blue);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  background-color: var(--neon-blue);
+  color: black;
+}
+
+/* Schedule Section */
+.schedule-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a0f1e;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: calc(100% - 100px);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #1e293b;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+/* History Section */
+.history-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #0a0f1e;
+  border-radius: 10px;
+  margin: 50px auto;
+  width: calc(100% - 100px);
+  margin-left: 100px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+/* Adjust History Text */
+.history-text {
+  width: 50%;
+  text-align: left;
+  padding: 20px;
+}
+
+/* Adjust History Images */
+.history-img {
+  width: 50%;
+  text-align: center;
+}
+
+.history-img img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .navbar {
+    width: 60px;
+  }
+
+  .content,
+  .header,
+  .events,
+  .schedule-section,
+  .history-section {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+
+  .events {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    display: none; /* Hide navbar for small screens */
+  }
+
+  .content,
+  .header,
+  .events,
+  .schedule-section,
+  .history-section {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .events {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
