@@ -32,3 +32,4 @@ function toggleEvents() {
     btn.textContent = "Show Non-Tech Events";
   }
 }
+  
