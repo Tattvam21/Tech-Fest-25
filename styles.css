@@ -256,9 +256,18 @@ body.light-theme .navbar_link:hover::before {
 .events h2 {
   font-size: 2.8em;
   color: #FFFFFF;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
   transition: color 0.3s;
+}
+
+.events p {
+  color: #B0B8C4;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 800px;
 }
 
 body.light-theme .events h2 {
@@ -365,12 +374,14 @@ body.light-theme .event-card::after {
   transition: color 0.3s;
   font-size: 1.5em;
   font-weight: 600;
+  text-align: left;
 }
 
 .event-card p {
   color: #B0B8C4;
   font-size: 1em;
   line-height: 1.6;
+  text-align: left;
 }
 
 /* Schedule Section */
@@ -495,10 +506,6 @@ body.light-theme .history-section h2 {
 
 .history-item:last-child {
   margin-bottom: 0;
-}
-
-.history-item:nth-child(odd) {
-  flex-direction: row-reverse;
 }
 
 .history-item .history-text {
@@ -758,21 +765,6 @@ body.light-theme .footer {
   margin-right: auto; /* Push to the left */
 }
 
-.footer-center {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.footer-left img {
-  height: 70px;
-  margin-right: 20px;
-}
-
-.footer-left p {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
 .footer-center h3 {
   color: #FFFFFF;
   margin-bottom: 15px;
@@ -803,4 +795,167 @@ body.light-theme .footer-bottom {
 .footer-bottom p {
   margin: 5px 0;
   font-size: 0.9em;
+}
+
+/* Enhanced Event Card Styling */
+#department-boxes .event-card,
+#tech-non-tech-events .event-card {
+  background-color: #192231;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #2a4365;
+}
+
+#department-boxes .event-card h3,
+#tech-non-tech-events .event-card h3 {
+  color: #FFFFFF;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+  text-align: left;
+}
+
+#department-boxes .event-card p,
+#tech-non-tech-events .event-card p {
+  color: #B0B8C4;
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: left;
+}
+
+#department-boxes .event-card:hover,
+#tech-non-tech-events .event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+#department-boxes .event-card::before,
+#tech-non-tech-events .event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #00A6FB, transparent);
+}
+
+#department-boxes .event-card::after,
+#tech-non-tech-events .event-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 4px;
+  transform: rotate(180deg);
+}
+
+body.light-theme #department-boxes .event-card,
+body.light-theme #tech-non-tech-events .event-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme #department-boxes .event-card h3,
+body.light-theme #tech-non-tech-events .event-card h3 {
+  color: #333}
+
+body.light-theme #department-boxes .event-card p,
+body.light-theme #tech-non-tech-events .event-card p {
+  color: #555;
+}
+
+body.light-theme #department-boxes .event-card::before,body.light-theme #tech-non-tech-events .event-card::before {
+  background: linear-gradient(to right, #0077B6, transparent);
+}
+
+.visit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00A6FB;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+.visit-button:hover {
+  background-color: #3B0086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .visit-button {
+  background-color: #0077B6;
+  color: #FFFFFF;
+}
+
+.visit-button i {
+  margin-left: 5px;
+}
+
+.back-button {
+  display: inline;
+  padding: 10px 20px;
+  background-color: #00A6FB;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  text-align: left;
+
+}
+
+.back-button:hover {
+  background-color: #3B0086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .back-button {
+  background-color: #0077B6;
+  color: #FFFFFF;
+}
+
+.back-button i {
+  margin-right: 5px;
+}
+
+/* Style for back button above the grid */
+.events-grid > .back-button {
+  grid-column: 1 / -1; /* Span all columns */
+  text-align: left; /* Align to the left */
+  margin-bottom: 10px; /* Add some space below the button */
+  width: auto;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  display: none; /* Hidden by default */
+}
+
+/* Show back button when needed */
+#tech-non-tech-events.show-back-button > .back-button,
+#tech-events.show-back-button > .back-button,
+#non-tech-events.show-back-button > .back-button {
+  display: inline-block;
 }
