@@ -32,4 +32,51 @@ function toggleEvents() {
     btn.textContent = "Show Non-Tech Events";
   }
 }
+
+function showTechNonTech(department) {
+  document.getElementById('department-boxes').style.display = 'none';
+  document.getElementById('tech-non-tech-events').style.display = 'grid';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  showBackButton('tech-non-tech-events');
+}
+
+function showEvents(type) {
+  document.getElementById('tech-non-tech-events').style.display = 'none';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  if (type === 'tech') {
+    document.getElementById('tech-events').style.display = 'grid';
+    showBackButton('tech-events');
+  } else {
+    document.getElementById('non-tech-events').style.display = 'grid';
+    showBackButton('non-tech-events');
+  }
+}
+
+function showDepartmentBoxes() {
+  document.getElementById('tech-non-tech-events').style.display = 'none';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  document.getElementById('department-boxes').style.display = 'grid';
+  hideBackButton();
+}
+
+function showBackButton(sectionId) {
+  const backButton = document.querySelector(`#${sectionId} .back-button`);
+  if (backButton) {
+    backButton.style.display = 'inline-block';
+  }
   
+  // Hide back button in department boxes
+  if (sectionId === 'department-boxes') {
+      hideBackButton();
+  }
+}
+
+function hideBackButton() {
+  const backButtons = document.querySelectorAll('.back-button');
+  backButtons.forEach(button => {
+    button.style.display = 'none';
+  });
+}
