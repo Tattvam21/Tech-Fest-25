@@ -17,6 +17,147 @@ body.light-theme {
   color: #333;
 }
 
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+/* Video Background */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* Main Title */
+.hero-title {
+  font-size: 3rem;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Slogan */
+.hero-slogan {
+  font-size: 1.2rem;
+  margin: 6px 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Button to Register Now */
+/* Button to Explore Events */
+.hero-content .btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: #00A6FB;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  margin-top: 20px; /* Moves the button a bit lower */
+  position: relative;
+}
+
+/* Hover Effect - Highlight Button */
+.hero-content .btn:hover {
+  background-color: #3a0086;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  scale: 1.1;
+}
+
+/* Text Fade-In Up Animation */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Fade-in Effect for Title, Slogan, and Button */
+.hero-title.fadeInUp,
+.hero-slogan.fadeInUp,
+.hero-content .btn.fadeInUp {
+  animation: fadeInUp 1s forwards;
+}
+
+.hero-title {
+  animation-delay: 1s; /* Title fades in after 1 second */
+}
+
+.hero-slogan {
+  animation-delay: 1.5s; /* Slogan fades in after 1.5 seconds */
+}
+
+.hero-content .btn {
+  animation-delay: 2s; /* Button fades in after 2 seconds */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .hero-title {
+      font-size: 2.5rem;
+  }
+
+  .hero-slogan {
+      font-size: 1.2rem;
+  }
+
+  .hero-content .btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+      font-size: 2rem;
+  }
+
+  .hero-slogan {
+      font-size: 1rem;
+  }
+
+  .hero-content .btn {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+  }
+}
+
 /* Header Section */
 .header {
   background: linear-gradient(
@@ -24,7 +165,7 @@ body.light-theme {
       rgba(10, 15, 31, 0.7),
       rgba(10, 15, 31, 1)
     ),
-    url("bg.jpg") center/cover no-repeat;
+    url("logo.jpg") center/cover no-repeat;
   color: #ffffff;
   text-align: center;
   position: relative;
@@ -271,6 +412,10 @@ body.light-theme .navbar_link:hover::before {
 }
 
 body.light-theme .events h2 {
+  color: #333;
+}
+
+body.light-theme .events p {
   color: #333;
 }
 
@@ -700,7 +845,6 @@ body.light-theme .navbar_link:hover::before {
   padding: 60px 20px;
   text-align: center;
   box-sizing: border-box;
-  clear: both;
 }
 
 .sponsors h2 {
@@ -764,7 +908,6 @@ body.light-theme .footer {
   align-items: center;
   margin-right: auto; /* Push to the left */
 }
-
 .footer-center h3 {
   color: #FFFFFF;
   margin-bottom: 15px;
@@ -870,11 +1013,12 @@ body.light-theme #tech-non-tech-events .event-card h3 {
   color: #333}
 
 body.light-theme #department-boxes .event-card p,
-body.light-theme #tech-non-tech-events .event-card p {
+body.light-theme #tech-non-tech-events .event-card p{
   color: #555;
 }
 
-body.light-theme #department-boxes .event-card::before,body.light-theme #tech-non-tech-events .event-card::before {
+body.light-theme #department-boxes .event-card::before,
+body.light-theme #tech-non-tech-events .event-card::before {
   background: linear-gradient(to right, #0077B6, transparent);
 }
 
@@ -910,7 +1054,7 @@ body.light-theme .visit-button {
 }
 
 .back-button {
-  display: inline;
+  display: inline-block;
   padding: 10px 20px;
   background-color: #00A6FB;
   color: #FFFFFF;
@@ -924,7 +1068,7 @@ body.light-theme .visit-button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   text-align: left;
-
+  width: auto;
 }
 
 .back-button:hover {
@@ -958,4 +1102,8 @@ body.light-theme .back-button {
 #tech-events.show-back-button > .back-button,
 #non-tech-events.show-back-button > .back-button {
   display: inline-block;
+}
+
+body.light-theme .events p {
+  color: #333;
 }
