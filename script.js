@@ -1,21 +1,88 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const themeToggle = document.getElementById("theme-toggle");
-  const body = document.body;
+let headerNet, eventsRings, scheduleBirds, historyBirds, sponsorsRings;
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      body.classList.toggle("light-theme");
-      if (body.classList.contains("light-theme")) {
-        this.innerHTML =
-          '<i class="fa fa-moon" aria-hidden="true"></i><span>Theme</span>';
-      } else {
-        this.innerHTML =
-          '<i class="fa fa-sun" aria-hidden="true"></i><span>Theme</span>';
-      }
-    });
+// Get the video elements and the overlay element
+// JavaScript code for handling video and text animations
+const firstVideo = document.getElementById('first-video');
+const heroTitle = document.querySelector('.hero-title');
+const heroSlogan = document.querySelector('.hero-slogan');
+const registerBtn = document.querySelector('.btn');
+
+// Set the animation delay for the text
+setTimeout(() => {
+    heroTitle.style.opacity = '1';  // Show title after 1 second
+    heroTitle.classList.add('fadeInUp');
+    
+    heroSlogan.style.opacity = '1';  // Show slogan after 1 second
+    heroSlogan.classList.add('fadeInUp');
+    
+    registerBtn.style.opacity = '1';  // Show button after 1.5 seconds
+    registerBtn.classList.add('fadeInUp');
+}, 1000); // 1 second delay
+
+
+
+const initializeVanta = (element) => {
+  const vantaOptions = {
+    el: element,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+    backgroundAlpha: 0.5,
+    ringSize: 1,
+    rotationMultiplier: 0.05
+  };
+
+  if (element === "#headerL") {
+    if (headerNet) headerNet.destroy();
+    headerNet = VANTA.NET(vantaOptions);
+  } else if (element === "#events") {
+    if (eventsRings) eventsRings.destroy();
+    eventsRings = VANTA.RINGS(vantaOptions);
+  } else if (element === "#sponsors") {
+    if (sponsorsRings) sponsorsRings.destroy();
+    sponsorsRings = VANTA.RINGS(vantaOptions);
   }
-});
+
+   const birdsOptionsSchedule = {
+    el: "#schedule",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+    quantity: 3
+  };
+
+  if (scheduleBirds) scheduleBirds.destroy();
+  scheduleBirds = VANTA.BIRDS(birdsOptionsSchedule);
+
+   const birdsOptionsHistory = {
+    el: "#history",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+     backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+    quantity: 3
+  };
+
+  if (historyBirds) historyBirds.destroy();
+  historyBirds = VANTA.BIRDS(birdsOptionsHistory);
+};
 
 function toggleEvents() {
   const techEvents = document.getElementById("tech-events");
@@ -80,3 +147,18 @@ function hideBackButton() {
     button.style.display = 'none';
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeVanta("#headerL");
+  initializeVanta("#events");
+  initializeVanta("#sponsors");
+
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', () => {
+    const body = document.body;
+    body.classList.toggle('light-theme');
+    initializeVanta("#headerL");
+    initializeVanta("#events");
+    initializeVanta("#sponsors");
+  });
+});
