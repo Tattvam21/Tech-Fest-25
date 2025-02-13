@@ -2,63 +2,26 @@ let headerNet, eventsRings, scheduleBirds, historyBirds, sponsorsRings;
 
 // Get the video elements and the overlay element
 // JavaScript code for handling video and text animations
-const firstVideo = document.getElementById('first-video');
-const heroTitle = document.querySelector('.hero-title');
-const heroSlogan = document.querySelector('.hero-slogan');
-const registerBtn = document.querySelector('.btn');
+const firstVideo = document.getElementById("first-video");
+const heroTitle = document.querySelector(".hero-title");
+const heroSlogan = document.querySelector(".hero-slogan");
+const registerBtn = document.querySelector(".btn");
 
 // Set the animation delay for the text
 setTimeout(() => {
-    heroTitle.style.opacity = '1';  // Show title after 1 second
-    heroTitle.classList.add('fadeInUp');
-    
-    heroSlogan.style.opacity = '1';  // Show slogan after 1 second
-    heroSlogan.classList.add('fadeInUp');
-    
-    registerBtn.style.opacity = '1';  // Show button after 1.5 seconds
-    registerBtn.classList.add('fadeInUp');
+  heroTitle.style.opacity = "1"; // Show title after 1 second
+  heroTitle.classList.add("fadeInUp");
+
+  heroSlogan.style.opacity = "1"; // Show slogan after 1 second
+  heroSlogan.classList.add("fadeInUp");
+
+  registerBtn.style.opacity = "1"; // Show button after 1.5 seconds
+  registerBtn.classList.add("fadeInUp");
 }, 1000); // 1 second delay
 
-
-
-const initializeVanta = () => {
-  const vantaOptionsHeader = {
-    el: "#headerL",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-  };
-
-  if (headerNet) headerNet.destroy();
-  headerNet = VANTA.NET(vantaOptionsHeader);
-
-  const ringsOptions = {
-    el: "#events",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-    backgroundAlpha: 0.5,
-    ringSize: 1,
-    rotationMultiplier: 0.05
-  };
-
-  if (eventsRings) eventsRings.destroy();
-  eventsRings = VANTA.RINGS(ringsOptions);
-
-  const ringsOptionsSponsors = {
-    el: "#sponsors",
+const initializeVanta = (element) => {
+  const vantaOptions = {
+    el: element,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
@@ -66,28 +29,44 @@ const initializeVanta = () => {
     minWidth: 200.0,
     scale: 1.0,
     scaleMobile: 1.0,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf0f0f0 : 0x1e1e1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
+    backgroundColor: document.body.classList.contains("light-theme")
+      ? 0xf9f9f9
+      : 0x0a0b1e,
+    color: document.body.classList.contains("light-theme")
+      ? 0x333333
+      : 0x5c6bc0,
     backgroundAlpha: 0.5,
     ringSize: 1,
     rotationMultiplier: 0.05,
   };
 
-  if (sponsorsRings) sponsorsRings.destroy();
-  sponsorsRings = VANTA.RINGS(ringsOptionsSponsors);
+  if (element === "#headerL") {
+    if (headerNet) headerNet.destroy();
+    headerNet = VANTA.NET(vantaOptions);
+  } else if (element === "#events") {
+    if (eventsRings) eventsRings.destroy();
+    eventsRings = VANTA.RINGS(vantaOptions);
+  } else if (element === "#sponsors") {
+    if (sponsorsRings) sponsorsRings.destroy();
+    sponsorsRings = VANTA.RINGS(vantaOptions);
+  }
 
   const birdsOptionsSchedule = {
     el: "#schedule",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-    quantity: 3
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    backgroundColor: document.body.classList.contains("light-theme")
+      ? 0xf9f9f9
+      : 0x0a0b1e,
+    color: document.body.classList.contains("light-theme")
+      ? 0x333333
+      : 0x5c6bc0,
+    quantity: 3,
   };
 
   if (scheduleBirds) scheduleBirds.destroy();
@@ -98,26 +77,148 @@ const initializeVanta = () => {
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-    quantity: 3
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    backgroundColor: document.body.classList.contains("light-theme")
+      ? 0xf9f9f9
+      : 0x0a0b1e,
+    color: document.body.classList.contains("light-theme")
+      ? 0x333333
+      : 0x5c6bc0,
+    quantity: 3,
   };
 
   if (historyBirds) historyBirds.destroy();
   historyBirds = VANTA.BIRDS(birdsOptionsHistory);
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  initializeVanta();
+function toggleEvents() {
+  const techEvents = document.getElementById("tech-events");
+  const nonTechEvents = document.getElementById("non-tech-events");
+  const btn = document.getElementById("toggle-btn");
 
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle.addEventListener('click', () => {
+  if (techEvents.style.display !== "none") {
+    techEvents.style.display = "none";
+    nonTechEvents.style.display = "grid";
+    btn.textContent = "Show Tech Events";
+  } else {
+    techEvents.style.display = "grid";
+    nonTechEvents.style.display = "none";
+    btn.textContent = "Show Non-Tech Events";
+  }
+}
+
+function showTechNonTech(department) {
+  hideAllEventGrids();
+  document.getElementById("department-boxes").style.display = "none";
+  document.getElementById("tech-non-tech-events").style.display = "grid";
+  // Hide all department-specific event cards initially
+  const eventCards = document.querySelectorAll(
+    "#tech-non-tech-events .event-card"
+  );
+  eventCards.forEach((card) => {
+    card.style.display = "none";
+  });
+
+  // Show only the event cards for the selected department
+  const selectedDepartmentCards = document.querySelectorAll(
+    `#tech-non-tech-events .event-card[data-department="${department}"]`
+  );
+  selectedDepartmentCards.forEach((card) => {
+    card.style.display = "block";
+  });
+
+  showBackButton("tech-non-tech-events");
+}
+
+function showEvents(department, type) {
+  // Hide all event grids
+  hideAllEventGrids();
+
+  let eventGridId = "";
+
+  if (department === "computer" && type === "tech") {
+    eventGridId = "computer-tech-events";
+  } else if (department === "electrical" && type === "tech") {
+    eventGridId = "electrical-tech-events";
+  } else if (department === "humanity" && type === "non-tech") {
+    eventGridId = "humanity-non-tech-events";
+  } else if (department === "civil" && type === "tech") {
+    eventGridId = "civil-tech-events";
+  } else if (department === "civil" && type === "non-tech") {
+    eventGridId = "civil-non-tech-events";
+  } else if (department === "mechanical" && type === "tech") {
+    eventGridId = "mechanical-tech-events";
+  } else if (department === "mechanical" && type === "non-tech") {
+    eventGridId = "mechanical-non-tech-events";
+  } else if (department === "pharmacy" && type === "non-tech") {
+    eventGridId = "pharmacy-non-tech-events";
+  } else {
+    console.error(
+      "No matching event grid found for department:",
+      department,
+      "and type:",
+      type
+    );
+    return;
+  }
+
+  const eventGrid = document.getElementById(eventGridId);
+  if (eventGrid) {
+    eventGrid.style.display = "grid";
+    showBackButton(eventGridId);
+  } else {
+    console.error("Event grid with ID", eventGridId, "not found.");
+  }
+}
+
+function showDepartmentBoxes() {
+  hideAllEventGrids();
+  document.getElementById("tech-non-tech-events").style.display = "none";
+  document.getElementById("department-boxes").style.display = "grid";
+  hideBackButton();
+}
+
+function showBackButton(sectionId) {
+  const backButton = document.querySelector(`#${sectionId} .back-button`);
+  if (backButton) {
+    backButton.style.display = "inline-block";
+  }
+}
+
+function hideBackButton() {
+  const backButtons = document.querySelectorAll(".back-button");
+  backButtons.forEach((button) => {
+    button.style.display = "none";
+  });
+}
+
+function hideAllEventGrids() {
+  document.getElementById("tech-non-tech-events").style.display = "none";
+  document.getElementById("computer-tech-events").style.display = "none";
+  document.getElementById("electrical-tech-events").style.display = "none";
+  document.getElementById("humanity-non-tech-events").style.display = "none";
+  document.getElementById("civil-tech-events").style.display = "none";
+  document.getElementById("civil-non-tech-events").style.display = "none";
+  document.getElementById("mechanical-tech-events").style.display = "none";
+  document.getElementById("mechanical-non-tech-events").style.display = "none";
+  document.getElementById("pharmacy-non-tech-events").style.display = "none";
+  document.getElementById("department-boxes").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeVanta("#headerL");
+  initializeVanta("#events");
+  initializeVanta("#sponsors");
+
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle.addEventListener("click", () => {
     const body = document.body;
-    body.classList.toggle('light-theme');
-    initializeVanta();
+    body.classList.toggle("light-theme");
+    initializeVanta("#headerL");
+    initializeVanta("#events");
+    initializeVanta("#sponsors");
   });
 });
