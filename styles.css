@@ -265,7 +265,7 @@ body.light-theme .header::after {
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  border-bottom: 2px solid #0c61d8;
+  border-bottom: 2px solid rgb(0, 166, 255);
   padding: 0 20px;
 }
 
