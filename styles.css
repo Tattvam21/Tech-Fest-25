@@ -265,7 +265,7 @@ body.light-theme .header::after {
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  border-bottom: 1px solid #1F2937;
+  border-bottom: 2px solid #0c61d8;
   padding: 0 20px;
 }
 
@@ -442,7 +442,7 @@ body.light-theme .events p {
 
 .event-card {
   background-color: #121826;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 30px;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -877,12 +877,12 @@ body.light-theme .sponsors h2 {
 .sponsors-grid img {
   max-width: 100%;
   height: auto;
-  filter: grayscale(80%);
-  transition: filter 0.3s ease;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
 .sponsors-grid img:hover {
-  filter: grayscale(0%);
+  scale: 1.05;
 }
 
 /* Footer Styles */
