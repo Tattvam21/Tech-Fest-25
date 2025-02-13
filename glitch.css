@@ -116,3 +116,14 @@
         clip: rect(47px, 9999px, 42px, 0);
       }
     }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      .glitch:after {
+        left: 70px; /* Reduce left position */
+      }
+
+      .glitch:before {
+        left: 10px; /* Reduce left position */
+      }
+    }
