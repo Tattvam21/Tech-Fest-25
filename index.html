@@ -115,7 +115,7 @@
             <!-- Department Boxes -->
             <div id="department-boxes" class="events-grid">
               <div class="event-card">
-                <h3>Computer Department</h3>
+                <h3>Computer &amp; IT Department</h3>
                 <p>
                   Explore events related to computer science and engineering.
                 </p>
@@ -127,13 +127,25 @@
                 </button>
               </div>
               <div class="event-card">
-                <h3>IT Department</h3>
+                <h3>Electrical / EC Department</h3>
                 <p>
-                  Discover events focused on information technology and systems.
+                  Engage in events concerning electrical and electronics engineering.
                 </p>
                 <button
                   class="visit-button"
-                  onclick="showTechNonTech('it'); event.stopPropagation();"
+                  onclick="showTechNonTech('electrical'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="event-card">
+                <h3>Humanity &amp; Applied Science</h3>
+                <p>
+                  Participate in events about Humanity and science.
+                </p>
+                <button
+                  class="visit-button"
+                  onclick="showTechNonTech('humanity'); event.stopPropagation();"
                 >
                   Visit <i class="fas fa-arrow-right"></i>
                 </button>
@@ -163,6 +175,18 @@
                   Visit <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
+              <div class="event-card">
+                <h3>Pharmacy Department</h3>
+                <p>
+                  Participate in events about Pharmacy.
+                </p>
+                <button
+                  class="visit-button"
+                  onclick="showTechNonTech('pharmacy'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
             </div>
 
             <!-- Tech and Non-Tech Event Boxes -->
@@ -174,27 +198,115 @@
               <button class="back-button" onclick="showDepartmentBoxes()">
                 <i class="fas fa-arrow-left"></i> Back
               </button>
-              <div class="event-card">
-                <h3>Tech Events</h3>
-                <p>
-                  Explore our exciting tech-related events and workshops.
-                </p>
+
+              <!-- Tech and Non-Tech Event Cards for Each Department -->
+              <div
+                class="event-card"
+                data-department="computer"
+                data-event-type="tech"
+              >
+                <h3>Computer &amp; IT - Tech Events</h3>
+                <p>Explore tech events by Computer &amp; IT Department.</p>
                 <button
                   class="visit-button"
-                  onclick="showEvents('tech'); event.stopPropagation();"
+                  onclick="showEvents('computer', 'tech'); event.stopPropagation();"
                 >
                   Visit <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
-              <div class="event-card">
-                <h3>Non-Tech Events</h3>
+              <div
+                class="event-card"
+                data-department="electrical"
+                data-event-type="tech"
+              >
+                <h3>Electrical / EC - Tech Events</h3>
+                <p>Explore tech events by Electrical / EC Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('electrical', 'tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div
+                class="event-card"
+                data-department="humanity"
+                data-event-type="non-tech"
+              >
+                <h3>Humanity &amp; Applied Science - Non-Tech Events</h3>
                 <p>
-                  Discover our fun and engaging non-technical events and
-                  contests.
+                  Explore non-tech events by Humanity &amp; Applied Science
+                  Department.
                 </p>
                 <button
                   class="visit-button"
-                  onclick="showEvents('non-tech'); event.stopPropagation();"
+                  onclick="showEvents('humanity', 'non-tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="event-card" data-department="civil" data-event-type="tech">
+                <h3>Civil - Tech Events</h3>
+                <p>Explore tech events by Civil Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('civil', 'tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div
+                class="event-card"
+                data-department="civil"
+                data-event-type="non-tech"
+              >
+                <h3>Civil - Non-Tech Events</h3>
+                <p>Explore non-tech events by Civil Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('civil', 'non-tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div
+                class="event-card"
+                data-department="mechanical"
+                data-event-type="tech"
+              >
+                <h3>Mechanical - Tech Events</h3>
+                <p>Explore tech events by Mechanical Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('mechanical', 'tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div
+                class="event-card"
+                data-department="mechanical"
+                data-event-type="non-tech"
+              >
+                <h3>Mechanical - Non-Tech Events</h3>
+                <p>Explore non-tech events by Mechanical Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('mechanical', 'non-tech'); event.stopPropagation();"
+                >
+                  Visit <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div
+                class="event-card"
+                data-department="pharmacy"
+                data-event-type="non-tech"
+              >
+                <h3>Pharmacy - Non-Tech Events</h3>
+                <p>Explore non-tech events by Pharmacy Department.</p>
+                <button
+                  class="visit-button"
+                  onclick="showEvents('pharmacy', 'non-tech'); event.stopPropagation();"
                 >
                   Visit <i class="fas fa-arrow-right"></i>
                 </button>
@@ -202,115 +314,301 @@
             </div>
 
             <!-- Tech Events -->
-            <div id="tech-events" class="events-grid" style="display: none">
-              <button class="back-button" onclick="showTechNonTech()">
+            <div
+              id="computer-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button class="back-button" onclick="showTechNonTech('computer')">
                 <i class="fas fa-arrow-left"></i> Back
               </button>
               <div class="event-card">
-                <h3>Hackathon</h3>
+                <h3>C-Quiz</h3>
                 <p>
-                  Compete in coding challenges and build innovative solutions.
+                  A challenging quiz testing coding, logic, and computer knowledge.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>AI Workshop</h3>
+                <h3>Techno Theatre Thrive</h3>
                 <p>
-                  Learn about artificial intelligence and machine learning.
+                  A fusion of technology and drama in storytelling.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Cybersecurity CTF</h3>
+                <h3>LAN Gaming</h3>
                 <p>
-                  Test your hacking skills in a Capture The Flag challenge.
+                  Competitive multiplayer gaming battle in a LAN-based setup.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Robotics Challenge</h3>
+                <h3>Shark Tank</h3>
                 <p>
-                  Build and program robots to complete complex tasks.
+                  Pitch innovative ideas to judges and secure funding.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Web Development</h3>
+                <h3>Relay Coding</h3>
                 <p>
-                  Create stunning websites with HTML, CSS, and JavaScript.
+                  Team-based coding competition with sequential problem-solving.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Game Development</h3>
+                <h3>E-Treasure Hunt</h3>
                 <p>
-                  Design and develop a game from scratch using Unity or Unreal.
+                  Online puzzle-solving adventure with clues and challenges.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="electrical-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button
+                class="back-button"
+                onclick="showTechNonTech('electrical')"
+              >
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Rays of Hope</h3>
+                <p>
+                  Experiment with light, lasers, and electrical circuits.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Blockchain Seminar</h3>
+                <h3>Robo Maze</h3>
                 <p>
-                  Explore blockchain technology and decentralized applications.
+                  Navigate robots through obstacles using programming and AI.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>IoT Workshop</h3>
+                <h3>Poster Presentation</h3>
                 <p>
-                  Learn about the Internet of Things and build smart devices.
+                  Showcase research ideas and innovations via informative posters.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="civil-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button class="back-button" onclick="showTechNonTech('civil')">
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Bob the Builder</h3>
+                <p>
+                  Structural building challenge using engineering concepts.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Spark of Poster</h3>
+                <p>
+                  Create visually appealing posters on civil engineering topics.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Hydro Maze</h3>
+                <p>
+                  Water flow and hydraulics-based engineering challenge.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="mechanical-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button
+                class="back-button"
+                onclick="showTechNonTech('mechanical')"
+              >
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Clash of CAD</h3>
+                <p>
+                  3D design competition using CAD software.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Revolutionary Thinkers</h3>
+                <p>
+                  Present breakthrough mechanical engineering ideas and innovations.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>The Junkyard Innovators</h3>
+                <p>
+                  Build working models using scrap materials.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
             </div>
 
             <!-- Non-Tech Events -->
-            <div id="non-tech-events" class="events-grid" style="display: none">
-              <button class="back-button" onclick="showTechNonTech()">
+            <div
+              id="humanity-non-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button
+                class="back-button"
+                onclick="showTechNonTech('humanity')"
+              >
                 <i class="fas fa-arrow-left"></i> Back
               </button>
               <div class="event-card">
-                <h3>Photography Contest</h3>
-                <p>Capture moments and showcase your creativity.</p>
-                <a href="#" class="register-button">Register Now</a>
-              </div>
-              <div class="event-card">
-                <h3>Drama Competition</h3>
+                <h3>Battle of Creation</h3>
                 <p>
-                  Show off your acting skills in a fun-filled drama competition.
+                  Creative competition involving art, design, and storytelling.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Music Battle</h3>
-                <p>Compete in a music competition and impress the crowd.</p>
-                <a href="#" class="register-button">Register Now</a>
-              </div>
-              <div class="event-card">
-                <h3>Cooking Contest</h3>
+                <h3>Human Foosball</h3>
                 <p>
-                  Prepare delicious dishes and showcase your culinary skills.
+                  Life-sized foosball game with real players controlling movement.
                 </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Fashion Show</h3>
-                <p>Display your best fashion creations on the runway.</p>
+                <h3>Hurdle Race</h3>
+                <p>
+                  Obstacle-based race testing speed, agility, and endurance.
+                </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Stand-up Comedy</h3>
-                <p>Make the audience laugh with your best comedy routine.</p>
+                <h3>Stock Market</h3>
+                <p>
+                  Simulated trading challenge with virtual stocks and market analysis.
+                </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Debate Competition</h3>
-                <p>Engage in an intellectual debate on trending topics.</p>
+                <h3>IPL Auction</h3>
+                <p>
+                  Strategic cricket team bidding competition like the IPL auctions.
+                </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
               <div class="event-card">
-                <h3>Dance Battle</h3>
-                <p>Showcase your dancing talent in a thrilling competition.</p>
+                <h3>Spot On Games</h3>
+                <p>
+                  Fun, engaging non-certificate games testing reflexes and skills.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="civil-non-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button class="back-button" onclick="showTechNonTech('civil')">
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Bhaukaal</h3>
+                <p>
+                  Competitive street play addressing social issues and awareness.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Revolt Cup</h3>
+                <p>
+                  High-energy football tournament with intense matchups.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="mechanical-non-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button
+                class="back-button"
+                onclick="showTechNonTech('mechanical')"
+              >
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Reel Revolution</h3>
+                <p>
+                  Short film-making contest on impactful themes.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Boost Session</h3>
+                <p>
+                  Physical fitness and endurance-based challenges.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+            </div>
+
+            <div
+              id="pharmacy-non-tech-events"
+              class="events-grid"
+              style="display: none"
+            >
+              <button
+                class="back-button"
+                onclick="showTechNonTech('pharmacy')"
+              >
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <div class="event-card">
+                <h3>Fortune Wheel</h3>
+                <p>
+                  Quiz-based game of luck and pharmaceutical knowledge.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Market Minds</h3>
+                <p>
+                  Business and marketing strategy competition.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Treasure Hunt</h3>
+                <p>
+                  Clue-based hunt across different locations.
+                </p>
+                <a href="#" class="register-button">Register Now</a>
+              </div>
+              <div class="event-card">
+                <h3>Courtroom</h3>
+                <p>
+                  Mock trial event testing legal and debating skills.
+                </p>
                 <a href="#" class="register-button">Register Now</a>
               </div>
             </div>
@@ -720,7 +1018,7 @@
               historyBirds = VANTA.BIRDS(birdsOptionsHistory);
 
               const ringsOptionsSponsors = {
-                el: "#sponsors",
+                el:"#sponsors",
                 mouseControls: true,
                 touchControls: true,
                 gyroControls: false,
@@ -758,29 +1056,100 @@
             document.getElementById("department-boxes").style.display = "none";
             document.getElementById("tech-non-tech-events").style.display =
               "grid";
+            // Hide all department-specific event cards initially
+            const eventCards = document.querySelectorAll(
+              "#tech-non-tech-events .event-card"
+            );
+            eventCards.forEach((card) => {
+              card.style.display = "none";
+            });
+
+            // Show only the event cards for the selected department
+            const selectedDepartmentCards = document.querySelectorAll(
+              `#tech-non-tech-events .event-card[data-department="${department}"]`
+            );
+            selectedDepartmentCards.forEach((card) => {
+              card.style.display = "block";
+            });
+
             showBackButton("tech-non-tech-events");
           }
 
-          function showEvents(type) {
+          function showEvents(department, type) {
+            // Hide all event grids
             document.getElementById("tech-non-tech-events").style.display =
               "none";
-            document.getElementById("tech-events").style.display = "none";
-            document.getElementById("non-tech-events").style.display = "none";
-            if (type === "tech") {
-              document.getElementById("tech-events").style.display = "grid";
-              showBackButton("tech-events");
+            document.getElementById("computer-tech-events").style.display =
+              "none";
+            document.getElementById("electrical-tech-events").style.display =
+              "none";
+            document.getElementById("humanity-non-tech-events").style.display =
+              "none";
+            document.getElementById("civil-tech-events").style.display = "none";
+            document.getElementById("civil-non-tech-events").style.display =
+              "none";
+            document.getElementById("mechanical-tech-events").style.display =
+              "none";
+            document.getElementById("mechanical-non-tech-events").style.display =
+              "none";
+            document.getElementById("pharmacy-non-tech-events").style.display =
+              "none";
+
+            let eventGridId = "";
+
+            if (department === "computer" && type === "tech") {
+              eventGridId = "computer-tech-events";
+            } else if (department === "electrical" && type === "tech") {
+              eventGridId = "electrical-tech-events";
+            } else if (department === "humanity" && type === "non-tech") {
+              eventGridId = "humanity-non-tech-events";
+            } else if (department === "civil" && type === "tech") {
+              eventGridId = "civil-tech-events";
+            } else if (department === "civil" && type === "non-tech") {
+              eventGridId = "civil-non-tech-events";
+            } else if (department === "mechanical" && type === "tech") {
+              eventGridId = "mechanical-tech-events";
+            } else if (department === "mechanical" && type === "non-tech") {
+              eventGridId = "mechanical-non-tech-events";
+            } else if (department === "pharmacy" && type === "non-tech") {
+              eventGridId = "pharmacy-non-tech-events";
             } else {
-              document.getElementById("non-tech-events").style.display =
-                "grid";
-              showBackButton("non-tech-events");
+              console.error(
+                "No matching event grid found for department:",
+                department,
+                "and type:",
+                type
+              );
+              return;
+            }
+
+            const eventGrid = document.getElementById(eventGridId);
+            if (eventGrid) {
+              eventGrid.style.display = "grid";
+              showBackButton(eventGridId);
+            } else {
+              console.error("Event grid with ID", eventGridId, "not found.");
             }
           }
 
           function showDepartmentBoxes() {
             document.getElementById("tech-non-tech-events").style.display =
               "none";
-            document.getElementById("tech-events").style.display = "none";
-            document.getElementById("non-tech-events").style.display = "none";
+            document.getElementById("computer-tech-events").style.display =
+              "none";
+            document.getElementById("electrical-tech-events").style.display =
+              "none";
+            document.getElementById("humanity-non-tech-events").style.display =
+              "none";
+            document.getElementById("civil-tech-events").style.display = "none";
+            document.getElementById("civil-non-tech-events").style.display =
+              "none";
+            document.getElementById("mechanical-tech-events").style.display =
+              "none";
+            document.getElementById("mechanical-non-tech-events").style.display =
+              "none";
+            document.getElementById("pharmacy-non-tech-events").style.display =
+              "none";
             document.getElementById("department-boxes").style.display = "grid";
             hideBackButton();
           }
