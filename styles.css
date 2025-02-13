@@ -73,8 +73,8 @@ body.light-theme {
 .hero-content .btn {
   display: inline-block;
   padding: 14px 30px;
-  background-color: #00A6FB;
-  color: #FFFFFF;
+  background-color: rgb(0, 166, 255);
+  color: #010101;
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
@@ -90,8 +90,11 @@ body.light-theme {
 
 /* Hover Effect - Highlight Button */
 .hero-content .btn:hover {
-  background-color: #3a0086;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);
+  border: 1px solid;
+  border-color: white;
+  color: white;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   scale: 1.1;
 }
@@ -130,7 +133,23 @@ body.light-theme {
 /* Responsive Styling */
 @media (max-width: 768px) {
   .hero-title {
-      font-size: 2rem;
+      font-size: 3rem;
+  }
+
+  .hero-slogan {
+      font-size: 1.7rem;
+  }
+
+  .hero-content .btn {
+      padding: 8px 16px;
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+      font-size: 3rem;
+      line-height: 1;
   }
 
   .hero-slogan {
@@ -138,24 +157,8 @@ body.light-theme {
   }
 
   .hero-content .btn {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-      font-size: 1.5rem;
-      line-height: 1;
-  }
-
-  .hero-slogan {
-      font-size: 0.8rem;
-  }
-
-  .hero-content .btn {
       padding: 6px 12px;
-      font-size: 0.7rem;
+      font-size: 1.2rem;
   }
 }
 
@@ -907,8 +910,7 @@ body.light-theme .footer {
 .footer-left {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Push```html
- Push to the left */
+  margin-right: auto; /* Push to the left*/
 }
 .footer-center h3 {
   color: #FFFFFF;
@@ -1108,4 +1110,21 @@ body.light-theme .back-button {
 
 body.light-theme .events p {
   color: #333;
+}
+
+/* Shaking animation */
+#shake{
+    text-align: center;
+    animation: skew-x-shaking 1s linear infinite;
+    animation-delay: 2s;
+
+}
+
+@keyframes skew-x-shaking {
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg); }
+    20% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }
 }
