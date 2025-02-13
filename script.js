@@ -21,25 +21,9 @@ setTimeout(() => {
 
 
 
-const initializeVanta = () => {
-  const vantaOptionsHeader = {
-    el: "#headerL",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-  };
-
-  if (headerNet) headerNet.destroy();
-  headerNet = VANTA.NET(vantaOptionsHeader);
-
-  const ringsOptions = {
-    el: "#events",
+const initializeVanta = (element) => {
+  const vantaOptions = {
+    el: element,
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
@@ -54,29 +38,18 @@ const initializeVanta = () => {
     rotationMultiplier: 0.05
   };
 
-  if (eventsRings) eventsRings.destroy();
-  eventsRings = VANTA.RINGS(ringsOptions);
+  if (element === "#headerL") {
+    if (headerNet) headerNet.destroy();
+    headerNet = VANTA.NET(vantaOptions);
+  } else if (element === "#events") {
+    if (eventsRings) eventsRings.destroy();
+    eventsRings = VANTA.RINGS(vantaOptions);
+  } else if (element === "#sponsors") {
+    if (sponsorsRings) sponsorsRings.destroy();
+    sponsorsRings = VANTA.RINGS(vantaOptions);
+  }
 
-  const ringsOptionsSponsors = {
-    el: "#sponsors",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.0,
-    minWidth: 200.0,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf0f0f0 : 0x1e1e1e,
-    color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
-    backgroundAlpha: 0.5,
-    ringSize: 1,
-    rotationMultiplier: 0.05,
-  };
-
-  if (sponsorsRings) sponsorsRings.destroy();
-  sponsorsRings = VANTA.RINGS(ringsOptionsSponsors);
-
-  const birdsOptionsSchedule = {
+   const birdsOptionsSchedule = {
     el: "#schedule",
     mouseControls: true,
     touchControls: true,
@@ -93,7 +66,7 @@ const initializeVanta = () => {
   if (scheduleBirds) scheduleBirds.destroy();
   scheduleBirds = VANTA.BIRDS(birdsOptionsSchedule);
 
-  const birdsOptionsHistory = {
+   const birdsOptionsHistory = {
     el: "#history",
     mouseControls: true,
     touchControls: true,
@@ -102,7 +75,7 @@ const initializeVanta = () => {
     minWidth: 200.00,
     scale: 1.00,
     scaleMobile: 1.00,
-    backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
+     backgroundColor: document.body.classList.contains('light-theme') ? 0xf9f9f9 : 0x0a0b1e,
     color: document.body.classList.contains('light-theme') ? 0x333333 : 0x5c6bc0,
     quantity: 3
   };
@@ -111,13 +84,81 @@ const initializeVanta = () => {
   historyBirds = VANTA.BIRDS(birdsOptionsHistory);
 };
 
+function toggleEvents() {
+  const techEvents = document.getElementById("tech-events");
+  const nonTechEvents = document.getElementById("non-tech-events");
+  const btn = document.getElementById("toggle-btn");
+
+  if (techEvents.style.display !== "none") {
+    techEvents.style.display = "none";
+    nonTechEvents.style.display = "grid";
+    btn.textContent = "Show Tech Events";
+  } else {
+    techEvents.style.display = "grid";
+    nonTechEvents.style.display = "none";
+    btn.textContent = "Show Non-Tech Events";
+  }
+}
+
+function showTechNonTech(department) {
+  document.getElementById('department-boxes').style.display = 'none';
+  document.getElementById('tech-non-tech-events').style.display = 'grid';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  showBackButton('tech-non-tech-events');
+}
+
+function showEvents(type) {
+  document.getElementById('tech-non-tech-events').style.display = 'none';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  if (type === 'tech') {
+    document.getElementById('tech-events').style.display = 'grid';
+    showBackButton('tech-events');
+  } else {
+    document.getElementById('non-tech-events').style.display = 'grid';
+    showBackButton('non-tech-events');
+  }
+}
+
+function showDepartmentBoxes() {
+  document.getElementById('tech-non-tech-events').style.display = 'none';
+  document.getElementById('tech-events').style.display = 'none';
+  document.getElementById('non-tech-events').style.display = 'none';
+  document.getElementById('department-boxes').style.display = 'grid';
+  hideBackButton();
+}
+
+function showBackButton(sectionId) {
+  const backButton = document.querySelector(`#${sectionId} .back-button`);
+  if (backButton) {
+    backButton.style.display = 'inline-block';
+  }
+  
+  // Hide back button in department boxes
+  if (sectionId === 'department-boxes') {
+      hideBackButton();
+  }
+}
+
+function hideBackButton() {
+  const backButtons = document.querySelectorAll('.back-button');
+  backButtons.forEach(button => {
+    button.style.display = 'none';
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  initializeVanta();
+  initializeVanta("#headerL");
+  initializeVanta("#events");
+  initializeVanta("#sponsors");
 
   const themeToggle = document.getElementById('theme-toggle');
   themeToggle.addEventListener('click', () => {
     const body = document.body;
     body.classList.toggle('light-theme');
-    initializeVanta();
+    initializeVanta("#headerL");
+    initializeVanta("#events");
+    initializeVanta("#sponsors");
   });
 });
