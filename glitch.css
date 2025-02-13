@@ -7,7 +7,7 @@
     .glitch:after {
       content: attr(data-text);
       position: absolute;
-      left: 2px;
+      left: 140px;
       text-shadow: -2px 0 #00A6FB; /* Blue Glitch (Left) */
       top: 0;
       color: white;
@@ -20,7 +20,7 @@
     .glitch:before {
       content: attr(data-text);
       position: absolute;
-      left: -2px;
+      left: 20px;
       text-shadow: 2px 0 red; /* Red Glitch (Right) */
       top: 0;
       color: white;
