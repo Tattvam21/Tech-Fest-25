@@ -8,7 +8,7 @@ const heroSlogan = document.querySelector('.hero-slogan');
 const registerBtn = document.querySelector('.btn');
 
 // Set the animation delay for the text
-setTimeout(() => {
+setTimeout(() => { 
     heroTitle.style.opacity = '1';  // Show title after 1 second
     heroTitle.classList.add('fadeInUp');
     
