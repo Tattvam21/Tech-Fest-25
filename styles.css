@@ -17,6 +17,327 @@ body.light-theme {
   color: #333;
 }
 
+/* Footer Styles */
+.footer {
+  background-color: #121826;
+  color: #B0B8C4;
+  padding: 40px 20px;
+  border-top: 1px solid #1F2937;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body.light-theme .footer {
+  background-color: #f0f0f0;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack items vertically */
+  align-items: center;
+  /* Center items horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style the logo container */
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  /* Center logos horizontally */
+  gap: 20px;
+  /* Space between logos */
+  margin-bottom: 20px;
+  /* Space below logos */
+}
+
+.footer-logos img {
+  height: 80px;
+  /* Adjust logo size */
+  border-radius: 50%;
+}
+
+/* Style the content container */
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  /* Space out the team and faculty sections */
+  width: 100%;
+  /* Take full width */
+  margin-bottom: 20px;
+  /* Space below content */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.footer-center h3,
+.footer-right h3,
+.footer-dev h3 {
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+body.light-theme .footer-center h3,
+body.light-theme .footer-right h3,
+body.light-theme .footer-dev h3 {
+  color: #333;
+}
+
+.footer-center p,
+.footer-right p,
+.footer-dev p {
+  margin: 5px 0;
+}
+
+.footer-right ul,
+.footer-dev ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li,
+.footer-dev li {
+  margin: 5px 0;
+}
+
+.footer-right a,
+.footer-dev a {
+  color: #B0B8C4;
+  text-decoration: none;
+}
+
+body.light-theme .footer-right a,
+body.light-theme .footer-dev a {
+  color: #666;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #1F2937;
+  clear: both;
+  width: 100%;
+}
+
+body.light-theme .footer-bottom {
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+
+
+  
+  .footer-content {
+    flex-direction: column;
+    /* Stack columns on small screens */
+    align-items: center;
+    /* Center items horizontally */
+  }
+
+  .footer-column {
+    width: 100%;
+    /* Make columns full width */
+    text-align: center;
+    /* Center text in columns */
+    margin-bottom: 20px;
+    /* Add space between columns */
+  }
+
+  .footer-logos {
+    justify-content: center;
+  }
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 480px) {
+  .footer-logos {
+    flex-direction: column;
+    /* Stack logos vertically */
+    align-items: center;
+    /* Center logos */
+  }
+
+  .footer-logos img {
+    margin-bottom: 10px;
+    /* Add space between logos */
+  }
+
+  .footer-content {
+    padding: 0 10px;
+    /* Add some padding to the content */
+  }
+
+  .footer-column {
+    min-width: auto;
+    /* Allow columns to shrink */
+    padding: 0 10px;
+    /* Add padding to the columns */
+  }
+
+  .footer-center h3,
+  .footer-right h3,
+  .footer-dev h3 {
+    font-size: 1.2em;
+    /* Reduce heading size */
+  }
+
+  .footer-center p,
+  .footer-right p,
+  .footer-dev p {
+    font-size: 0.9em;
+    /* Reduce paragraph size */
+  }
+  .footer-center ul p {
+    text-align: center;
+    /* Ensure text inside list items is centered */
+  }
+}
+
+/* Center-align specific content on smaller screens */
+@media (max-width: 480px) {
+  .footer-center {
+    text-align: center;
+    /* Center-align the entire .footer-center */
+  }
+
+  .footer-center ul {
+    padding: 0;
+    /* Remove default padding */
+    margin: 0 auto;
+    /* Center the list */
+    display: inline-block;
+    /* Make the list an inline-block element */
+  }
+
+  .footer-center ul p {
+    text-align: center;
+    /* Ensure text inside list items is centered */
+  }
+}
+
+/* History Section - Mobile Layout */
+@media (max-width: 768px) {
+  .history-item {
+    flex-direction: column;
+    /* Stack text and image vertically */
+    text-align: center;
+    /* Center content */
+  }
+
+  .history-item.history-reverse {
+    flex-direction: column;
+    /* Ensure reverse items also stack vertically */
+  }
+
+  .history-item .history-text {
+    padding: 20px;
+    /* Adjust padding */
+  }
+
+  .history-item .history-img {
+    margin-top: 20px;
+    /* Add space between text and image */
+  }
+
+  .history-item .history-img img {
+    max-width: 80%;
+    /* Adjust image size */
+    height: auto;
+  }
+}
+
+/* Button Styles */
+.visit-button,
+.back-button,
+.register-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  /* Common styles */
+}
+
+/* Visit Button */
+.visit-button {
+  background-color: #00A6FB;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.visit-button:hover {
+  background-color: #3B0086;
+  color: #FFFFFF;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+body.light-theme .visit-button {
+  background-color: #0077B6;
+  color: #FFFFFF;
+}
+
+/* Back Button */
+.back-button {
+  background-color: #6c757d;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  color: #FFFFFF;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+body.light-theme .back-button {
+  background-color: #6c757d;
+  color: #FFFFFF;
+}
+
+/* Register Button */
+.register-button {
+  background-color: #28a745;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.register-button:hover {
+  background-color: #218838;
+  color: #FFFFFF;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+body.light-theme .register-button {
+  background-color: #28a745;
+  color: #FFFFFF;
+}
+
+
 
 
 /* Hero Section */
@@ -1229,7 +1550,10 @@ body.light-theme .events p {
 
     .footer-bottom p {
         font-size: 0.8rem; /* Smaller footer font */
+
+        
     }
+    
 }
 
 /* Very small screens (e.g., 320px and below) */
@@ -1260,4 +1584,5 @@ body.light-theme .events p {
     .sponsors-grid {
         grid-template-columns: 1fr; /* Single column for sponsors */
     }
+   
 }
