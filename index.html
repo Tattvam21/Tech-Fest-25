@@ -32,7 +32,7 @@
         <!-- Header Section -->
         <section class="hero">
           <div class="hero-content">
-            <h1 class="hero-title glitch" data-text="INSPIRE 2025">
+            <h1 class="hero-title glitch" data-text="INSPIRE 2025" id="shake">
               INSPIRE 2025
             </h1>
             <p class="hero-slogan">
@@ -685,8 +685,7 @@
               if (scheduleBirds) scheduleBirds.destroy();
               scheduleBirds = VANTA.BIRDS(birdsOptionsSchedule);
 
-              const birdsOptionsHistory = {
-                el: "#history",
+              const birdsOptionsHistory = {                el: "#history",
                 mouseControls: true,
                 touchControls: true,
                 gyroControls: false,
